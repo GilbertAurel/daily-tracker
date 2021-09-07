@@ -9,7 +9,6 @@ import { COLORS } from 'assets/theme';
 const HomePage: React.FC = () => {
   const styles = {
     container: css`
-      padding-top: 2.5rem;
       display: grid;
       grid-auto-rows: 5rem;
       background-color: ${COLORS.white};
