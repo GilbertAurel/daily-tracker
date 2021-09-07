@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import { COLORS } from 'assets/theme';
 import React from 'react';
 
 interface Props {
@@ -12,9 +11,8 @@ const MobileLayout: React.FC<Props> = ({ children }) => {
   const styles = {
     container: css`
       min-height: 100vh;
-      min-width: 100vw;
       padding: 0 1.5rem;
-      background-color: ${COLORS.white};
+      background-color: #fff;
 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -23,6 +21,12 @@ const MobileLayout: React.FC<Props> = ({ children }) => {
 
       ::-webkit-scrollbar {
         display: none;
+      }
+
+      @media (min-width: 480px) {
+        min-height: 100vh;
+        width: 480px;
+        margin: auto;
       }
     `
   };
