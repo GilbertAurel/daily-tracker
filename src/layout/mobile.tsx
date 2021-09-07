@@ -11,7 +11,6 @@ const MobileLayout: React.FC<Props> = ({ children }) => {
   const styles = {
     container: css`
       min-height: 100vh;
-      padding: 0 1.5rem;
       background-color: #fff;
 
       -webkit-box-sizing: border-box;
