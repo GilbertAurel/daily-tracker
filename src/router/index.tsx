@@ -5,7 +5,10 @@ import HomePage from 'pages/home';
 const router: React.FC = () => (
   <Router>
     <Switch>
-      <Route path="/" component={HomePage} />
+      <Route exact path="/" component={HomePage} />
+      <Route path="/community" component={HomePage} />
+      <Route path="/collections" component={HomePage} />
+      <Route path="/c" component={HomePage} />
     </Switch>
   </Router>
 );
