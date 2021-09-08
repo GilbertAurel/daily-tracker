@@ -1,8 +1,22 @@
 import { screen, render, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import Navbar from '../index';
 
+const mockHistoryPush = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useHistory: () => ({
+    push: mockHistoryPush
+  })
+}));
+
 it('should render navbar with 4 buttons', () => {
-  render(<Navbar />);
+  render(
+    <MemoryRouter>
+      <Navbar />
+    </MemoryRouter>
+  );
 
   const homeBtn = screen.getByTestId('home-btn');
   const communityBtn = screen.getByTestId('community-btn');
@@ -13,4 +27,6 @@ it('should render navbar with 4 buttons', () => {
   fireEvent.click(communityBtn);
   fireEvent.click(collectionBtn);
   fireEvent.click(profileBtn);
+
+  expect(mockHistoryPush).toBeCalledTimes(4);
 });
