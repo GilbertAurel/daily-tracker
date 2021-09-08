@@ -15,6 +15,7 @@ const Button: React.FC<Props> = ({
   Icon,
   label,
   clickHandler,
+  path,
   active = false
 }) => {
   const styles = {
@@ -55,7 +56,7 @@ const Button: React.FC<Props> = ({
       id={id}
       css={styles.button}
       type="button"
-      onClick={() => clickHandler(id)}
+      onClick={() => clickHandler(path)}
       data-testid={id}
     >
       <Icon {...styles.icon} />

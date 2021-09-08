@@ -2,13 +2,18 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { buttons } from './buttons';
 import Button from './Button';
 
 const Navbar: React.FC = () => {
-  const [selectedMenu, setSelectedMenu] = useState(buttons[0].id);
+  const history = useHistory();
+  const [selectedMenu, setSelectedMenu] = useState(buttons[0].path);
 
-  const buttonClickHandler = (id: string) => setSelectedMenu(id);
+  const buttonClickHandler = (path: string) => {
+    setSelectedMenu(path);
+    history.push({ pathname: path });
+  };
 
   const styles = {
     container: css`
@@ -36,7 +41,8 @@ const Navbar: React.FC = () => {
           id={button.id}
           Icon={button.Icon}
           clickHandler={buttonClickHandler}
-          active={selectedMenu === button.id}
+          path={button.path}
+          active={selectedMenu === button.path}
         />
       ))}
     </div>

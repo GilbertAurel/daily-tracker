@@ -4,28 +4,33 @@ export type ButtonType = {
   id: string;
   label: string;
   Icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+  path: string;
 };
 
 export const buttons: ButtonType[] = [
   {
     id: 'home-btn',
     label: 'Home',
-    Icon: Home
+    Icon: Home,
+    path: ''
   },
   {
     id: 'community-btn',
     label: 'Community',
-    Icon: Globe
+    Icon: Globe,
+    path: 'community'
   },
   {
     id: 'collection-btn',
     label: 'Collections',
-    Icon: Layers
+    Icon: Layers,
+    path: 'collections'
   },
   {
     id: 'profile-btn',
     label: 'Profile',
-    Icon: User
+    Icon: User,
+    path: 'c'
   }
 ];
 
