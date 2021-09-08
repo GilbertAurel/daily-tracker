@@ -12,25 +12,25 @@ export const buttons: ButtonType[] = [
     id: 'home-btn',
     label: 'Home',
     Icon: Home,
-    path: 'home'
+    path: '/home'
   },
   {
     id: 'community-btn',
     label: 'Community',
     Icon: Globe,
-    path: 'community'
+    path: '/community'
   },
   {
     id: 'collection-btn',
     label: 'Collections',
     Icon: Layers,
-    path: 'collections'
+    path: '/collections'
   },
   {
     id: 'profile-btn',
     label: 'Profile',
     Icon: User,
-    path: 'c'
+    path: '/c'
   }
 ];
 

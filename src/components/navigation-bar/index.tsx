@@ -8,7 +8,7 @@ import Button from './Button';
 
 const Navbar: React.FC = () => {
   const history = useHistory();
-  const currentPath = useLocation().pathname.split('/')[1];
+  const currentPath = useLocation().pathname;
 
   const buttonClickHandler = (path: string) => history.push({ pathname: path });
 
