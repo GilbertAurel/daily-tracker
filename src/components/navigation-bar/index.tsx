@@ -1,19 +1,16 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import { buttons } from './buttons';
 import Button from './Button';
 
 const Navbar: React.FC = () => {
   const history = useHistory();
-  const [selectedMenu, setSelectedMenu] = useState(buttons[0].path);
+  const currentPath = useLocation().pathname.split('/')[1];
 
-  const buttonClickHandler = (path: string) => {
-    setSelectedMenu(path);
-    history.push({ pathname: path });
-  };
+  const buttonClickHandler = (path: string) => history.push({ pathname: path });
 
   const styles = {
     container: css`
@@ -42,7 +39,7 @@ const Navbar: React.FC = () => {
           Icon={button.Icon}
           clickHandler={buttonClickHandler}
           path={button.path}
-          active={selectedMenu === button.path}
+          active={currentPath === button.path}
         />
       ))}
     </div>
