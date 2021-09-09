@@ -14,14 +14,16 @@ const Navbar: React.FC = () => {
 
   const styles = {
     container: css`
+      height: 6.25rem;
       width: 100%;
       padding: 0 1.5rem;
       position: absolute;
-      bottom: 2.75rem;
+      bottom: 0;
       left: 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0px -10px 30px -15px rgba(0, 0, 255, 0.2);
 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
