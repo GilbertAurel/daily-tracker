@@ -13,6 +13,7 @@ const HomeContent: React.FC = () => {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 0.5rem;
     `,
     character: css`
       width: 17.2rem;
