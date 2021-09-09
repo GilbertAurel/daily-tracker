@@ -13,6 +13,9 @@ const HomeAddButton: React.FC = () => {
       position: absolute;
       right: 1.5rem;
       bottom: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: ${COLORS.primary};
       border: none;
       border-radius: 0.75rem;
