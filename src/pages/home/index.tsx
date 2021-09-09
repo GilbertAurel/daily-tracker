@@ -6,6 +6,7 @@ import Layout from 'layout/mobile';
 import HomeHeader from 'components/home-header';
 import { COLORS } from 'assets/theme';
 import HomeContent from 'components/home-content';
+import HomeAddButton from 'components/home-add-button';
 
 const HomePage: React.FC = () => {
   const styles = {
@@ -22,6 +23,7 @@ const HomePage: React.FC = () => {
       <div css={styles.container}>
         <HomeHeader />
         <HomeContent />
+        <HomeAddButton />
       </div>
     </Layout>
   );
