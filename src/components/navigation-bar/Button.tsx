@@ -44,11 +44,11 @@ const Button: React.FC<Props> = ({
       color: ${active ? COLORS.primary : COLORS.gray};
       ${FONTS.button}
     `,
-    icon: {
-      height: SIZES.icon,
-      width: SIZES.icon,
-      color: active ? COLORS.primary : COLORS.gray
-    }
+    icon: css`
+      height: ${SIZES.icon};
+      width: ${SIZES.icon};
+      color: ${active ? COLORS.primary : COLORS.gray};
+    `
   };
 
   return (
@@ -59,7 +59,7 @@ const Button: React.FC<Props> = ({
       onClick={() => clickHandler(path)}
       data-testid={id}
     >
-      <Icon {...styles.icon} />
+      <Icon css={styles.icon} />
       <p css={styles.label}>{label}</p>
     </button>
   );

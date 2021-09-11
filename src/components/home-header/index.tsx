@@ -24,10 +24,10 @@ const HomeHeader: React.FC = () => {
       border-radius: 5px;
       background-color: ${COLORS.lightgray};
     `,
-    bellIcon: {
-      height: SIZES.icon,
-      width: SIZES.icon
-    },
+    bellIcon: css`
+      height: ${SIZES.icon};
+      width: ${SIZES.icon};
+    `,
     indicator: css`
       height: 0.5rem;
       width: 0.5rem;
@@ -45,7 +45,7 @@ const HomeHeader: React.FC = () => {
         Flashcards
       </h2>
       <button css={styles.button} type="button" data-testid="notification-btn">
-        <Bell {...styles.bellIcon} />
+        <Bell css={styles.bellIcon} />
         <div css={styles.indicator} data-testid="indicator" />
       </button>
     </div>
