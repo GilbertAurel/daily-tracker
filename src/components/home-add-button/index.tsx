@@ -3,11 +3,20 @@
 import { css, jsx } from '@emotion/react';
 import React from 'react';
 import useToggle from 'utils/useToggle';
-import { Layers, Plus } from 'assets/icons/components';
 import { COLORS, FONTS, SIZES } from 'assets/theme';
+import { Layers } from 'assets/icons/components';
+import Button from './Button';
+import SubButton from './SubButton';
 
 const HomeAddButton: React.FC = () => {
   const [openSubMenu, toggleSubMenu] = useToggle(false);
+
+  const subButtons = [
+    {
+      title: 'create new',
+      Icon: Layers
+    }
+  ];
 
   const styles = {
     container: css`
@@ -70,20 +79,15 @@ const HomeAddButton: React.FC = () => {
 
   return (
     <div css={styles.container}>
-      {openSubMenu && (
-        <button css={styles.subButton} type="button" data-testid="sub-menu">
-          <Layers css={styles.subIcon} />
-          <p>create new</p>
-        </button>
-      )}
-      <button
-        css={styles.button}
-        type="button"
-        onClick={toggleSubMenu}
-        data-testid="add-btn"
-      >
-        <Plus css={styles.icon} />
-      </button>
+      {openSubMenu &&
+        subButtons.map((subButton) => (
+          <SubButton
+            key={subButton.title}
+            title={subButton.title}
+            Icon={subButton.Icon}
+          />
+        ))}
+      <Button openSubMenu={openSubMenu} toggleSubMenu={toggleSubMenu} />
     </div>
   );
 };
