@@ -1,14 +1,13 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import React, { useState } from 'react';
+import React from 'react';
+import useToggle from 'utils/useToggle';
 import { Layers, Plus } from 'assets/icons/components';
 import { COLORS, FONTS, SIZES } from 'assets/theme';
 
 const HomeAddButton: React.FC = () => {
-  const [subMenu, setSubMenu] = useState(false);
-
-  const toggleSubMenu = () => setSubMenu(!subMenu);
+  const [openSubMenu, toggleSubMenu] = useToggle(false);
 
   const styles = {
     container: css`
@@ -26,7 +25,7 @@ const HomeAddButton: React.FC = () => {
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: ${subMenu ? COLORS.secondary : COLORS.primary};
+      background-color: ${openSubMenu ? COLORS.secondary : COLORS.primary};
       border: none;
       border-radius: 0.75rem;
 
@@ -58,8 +57,8 @@ const HomeAddButton: React.FC = () => {
     icon: css`
       height: ${SIZES.icon};
       width: ${SIZES.icon};
-      color: ${subMenu ? COLORS.primary : COLORS.white};
-      transform: ${subMenu ? 'rotate(45deg)' : 'rotate(0deg)'};
+      color: ${openSubMenu ? COLORS.primary : COLORS.white};
+      transform: ${openSubMenu ? 'rotate(45deg)' : 'rotate(0deg)'};
       transition: transform 0.3s ease;
     `,
     subIcon: css`
@@ -71,7 +70,7 @@ const HomeAddButton: React.FC = () => {
 
   return (
     <div css={styles.container}>
-      {subMenu && (
+      {openSubMenu && (
         <button css={styles.subButton} type="button" data-testid="sub-menu">
           <Layers css={styles.subIcon} />
           <p>create new</p>
